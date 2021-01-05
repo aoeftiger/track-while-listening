@@ -73,3 +73,4 @@ def tracker_code(nturns):
 # Exit the interactive IPython shell by ctrl-D to resume tracking.
 # You can also override the finish function which is called
 # after the tracking, e.g. to add pickling the beam object etc.
+# When the tracking has finished you will need to hit enter/return to quit.
