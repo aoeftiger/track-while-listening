@@ -61,8 +61,8 @@ def tracker_code(nturns):
     '''Example code for a tracking loop.'''
     print ('Hit enter to interrupt the tracking!')
     thread, comms = listen()
-    for turn in tqdm.tqdm(range(nturns)):
-        try:
+    try:
+        for turn in tqdm.tqdm(range(nturns)):
             # do tracking...
             time.sleep(1)
 
@@ -75,10 +75,10 @@ def tracker_code(nturns):
                 embed()
                 thread, comms = listen()
                 # return to tracking loop
-        except Exception as e:
-            print ('Exception was raised, please hit enter/return!')
-            thread.join()
-            raise e
+    except Exception as e:
+        print ('Exception was raised, please hit enter/return!')
+        thread.join()
+        raise e
 
     for task in tasks_after_tracking:
         task(locals())
